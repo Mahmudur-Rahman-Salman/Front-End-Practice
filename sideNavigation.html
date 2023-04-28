@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Navigation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .sidenav{
+            height: 100%;
+            width: 0;
+            position: fixed;
+            background-color: #111;
+            padding-top: 60px;
+            overflow-x: hidden;
+            transition: 0.5s ;
+        }
+        .sidenav a{
+            display: block;
+            color: #818181;
+            text-decoration: none;
+            padding: 8px 8px 8px 32px;
+            font-size: 25px;
+            transition: 0.3s;
+        }
+        .sidenav a:hover{
+            color: #f1f1f1;
+        }
+        .sidenav .closeButton{
+            position: absolute; 
+            top: 0;
+            right: 25px;
+            margin-left: 50px;
+            font-size: 36px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sidenav" id="sidenav">
+        <a href="#" class="closeButton" onclick="closeButton()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Blogs</a>
+    </div>
+
+    <h2>Sidenav Overlay example</h2>
+    <p>Click on the element below to open the side navigation menu.</p>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Overlay</span>
+
+
+    <script>
+        const openNav = () => {
+            document.getElementById("sidenav").style.width= "250px"; 
+        }
+        const closeButton = () => {
+            document.getElementById('sidenav').style.width= "0"; 
+        }
+    </script>
+    
+</body>
+</html>
