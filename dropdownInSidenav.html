@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Dropdown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            background-color: black;
+            position: fixed;
+            padding-top: 20px;
+        }
+
+        .sidenav a,
+        .dropdown-btn {
+            text-decoration: none;
+            padding: 6px 8px 6px 16px;
+            display: block;
+            font-size: 20px;
+            color: #818181;
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .sidenav a:hover,
+        .dropdown-btn:hover {
+            color: #f1f1f1;
+        }
+
+        .main {
+            margin-left: 200px;
+            font-size: 20px;
+            padding: 0px 10px;
+        }
+
+        .active {
+            background-color: green;
+            color: white;
+        }
+
+        .dropdown-container {
+            background-color: #262626;
+            padding-left: 8px;
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Clients</a>
+        <a href="#">Services</a>
+        <button class="dropdown-btn" onclick="myfunction()">Dropdown
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container" id="dropdown-container">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+        <a href="#">Search</a>
+    </div>
+
+    <div class="main">
+        <h2>Sidebar Dropdown</h2>
+        <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
+        <p>This sidebar is of full height (100%) and always shown.</p>
+        <p>Some random text..</p>
+    </div>
+
+    <script>
+        const myfunction = ()=>{
+            document.getElementById('dropdown-container').classList.toggle('show'); 
+        }
+    </script>
+</body>
+
+</html>
