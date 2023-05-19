@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dropdown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .topnav a {
+            text-decoration: none;
+            font-size: 16px;
+            padding: 14px 16px;
+            float: left;
+            display: block;
+            color: white;
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            border: none;
+            outline: none;
+            background-color: inherit;
+            font-size: 16px;
+            padding: 14px 16px;
+            color: white;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            display: block;
+            color: black;
+            text-decoration: none;
+        }
+
+        .topnav a:hover,
+        .dropdown:hover,
+        .dropbtn {
+            background-color: #555;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        @media screen and (max-width:600px) {
+
+            .topnav a:not(:first-child),
+            .dropdown .dropbtn {
+                display: none;
+            }
+
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .topnav.responsive {
+                position: relative;
+            }
+
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            .topnav.responsive .dropdown {
+                float: none;
+            }
+
+            .topnav.responsive .dropdown-content {
+                position: relative;
+            }
+
+            .topnav.responsive .dropdown .dropbtn {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav" id="mytopnav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="dropFunction()">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="mydropdown">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="#">News</a>
+        <a href="#" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+
+    <script>
+        const myFunction = () => {
+            const x = document.getElementById('mytopnav');
+            if (x.className === "topnav") {
+                x.className += ' responsive';
+            }
+            else {
+                x.className = "topnav";
+            }
+        }
+        const dropFunction = () => {
+            document.getElementById('mydropdown').classList.toggle('show');
+        }
+        window.onclick = function (e) {
+            if (!e.target.matches('.dropbtn')) {
+                var myDropdown = document.getElementById("mydropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
